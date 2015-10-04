@@ -30,4 +30,3 @@ void Alphabet::addLetter(Letter _letter)
       }
    }
 
-

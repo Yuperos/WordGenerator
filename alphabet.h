@@ -20,11 +20,12 @@ public:
 
 class Alphabet
 {
-   QMultiMap <int,Letter*> LettersByType;
+    QMultiMap <int,Letter*> LettersByType;
     QList<Letter> alphabet;
 public:
     Alphabet();
     void addLetter(Letter _letter);
+    QList<QString> CombineLetters();
 };
 
 #endif // ALPHABET_H
