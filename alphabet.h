@@ -7,25 +7,26 @@
 
 class Letter
 {
-    QChar symbol;
-    int type; //0 vowel, 1 consonant
+   QChar symbol;
+   int numType; //0 vowel, 1 consonant
 
 public:
-    Letter(QChar _symbol,int _type){symbol=_symbol; type=_type;}
-    bool operator==(const Letter &b) const;
+   Letter(QChar _symbol,int _numType){symbol=_symbol; numType=_numType;}
+   bool operator==(const Letter &b) const;
 
-    int getType() const;
-    QChar getSymbol() const;
+   int getType() const;
+   QChar getSymbol() const;
 };
 
 class Alphabet
-{
-    QMultiMap <int,Letter*> LettersByType;
-    QList<Letter> alphabet;
+   {
+   int typeCount;
+
+   QMultiMap <int,Letter*> LettersByType;
+   QList<Letter> alphabet;
 public:
-    Alphabet();
-    void addLetter(Letter _letter);
-    QList<QString> CombineLetters();
-};
+   Alphabet();
+   void addLetter(Letter _letter);
+   };
 
 #endif // ALPHABET_H

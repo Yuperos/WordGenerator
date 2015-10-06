@@ -19,6 +19,7 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     graph.h \
-    alphabet.h
+    alphabet.h \
+    wgenums.h
 
 FORMS    += mainwindow.ui
