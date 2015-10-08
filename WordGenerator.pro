@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     graph.cpp \
-    alphabet.cpp
+    alphabet.cpp \
+    combineunit.cpp
 
 HEADERS  += mainwindow.h \
     graph.h \
     alphabet.h \
-    wgenums.h
+    wgenums.h \
+    combineunit.h
 
 FORMS    += mainwindow.ui

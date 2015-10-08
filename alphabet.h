@@ -5,18 +5,19 @@
 #include <QList>
 #include <QMap>
 
-class Letter
+class Letter : public QChar
 {
-   QChar symbol;
    int numType; //0 vowel, 1 consonant
 
 public:
-   Letter(QChar _symbol,int _numType){symbol=_symbol; numType=_numType;}
-   bool operator==(const Letter &b) const;
+   Letter(QChar _symbol, int _numType){symbol=_symbol, numType=_numType;}
+   bool operator ==(const Letter &b) const;
 
    int getType() const;
    QChar getSymbol() const;
 };
+
+
 
 class Alphabet
    {

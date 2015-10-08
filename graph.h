@@ -8,29 +8,34 @@
 #include <Qtime>
 #include <qvector.h>
 
+/**
+Currentrly unused class.
+Designed to visualize relationships between syllables.
+*/
+
 class GraphNode
 {
-    QString value;
-    float x,y;
-    int type;
-    QColor color;
-    QTime lastMoving;
+   QString value;
+   float x,y;
+   int type;
+   QColor color;
+   QTime lastMoving;
 
 public:
-    GraphNode();
-    GraphNode(float x, float y, QColor color, int type);
+   GraphNode();
+   GraphNode(float x, float y, QColor color, int type);
 
-    moveNode(float dx2, float dy2);
+   moveNode(float dx2, float dy2);
 };
 
 class Graph
 {
-    QVector<QList<int> > matrix;
-    QMap<QString, int> map;
+   QVector<QList<int> > matrix;
+   QMap<QString, int> map;
 
 public:
 
-    Graph();
+   Graph();
 };
 
 #endif // GRAPH_H
