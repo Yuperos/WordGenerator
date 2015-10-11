@@ -1,33 +1,38 @@
 #include "alphabet.h"
 
-
-int Letter::getType() const
-   {
-   return numType;
-   }
-
-QChar Letter::getSymbol() const
-   {
-   return symbol;
-   }
-
-bool Letter::operator==(const Letter &b) const
-   {
-   return this->symbol==b.symbol;
-   }
-
 Alphabet::Alphabet()
    {
-   typeCount = 0;
+   typesCount = 0;
    }
 
-void Alphabet::addLetter(Letter _letter)
+Alphabet::Alphabet(Alphabet &obj)
    {
-   if (this->alphabet.indexOf(_letter) != -1)
+   QList<QPair<QChar,int> >::iterator i;
+
+   QList<QPair<QChar,int> > tempAlphabet = obj.getLetters();
+
+   for(i = tempAlphabet.begin(); i != tempAlphabet.end(); i++)
+      this->addLetter(*i);
+   }
+
+void Alphabet::addLetter(QChar ch, int type)
+   {
+   QPair<QChar,int> letter(ch,type);
+   addLetter(letter);
+   }
+
+void Alphabet::addLetter(QPair<QChar, int> letter)
+   {
+   if (this->letters.indexOf(letter) != -1)
       {
-      alphabet.append(_letter);
-      this->LettersByType.insert(_letter.getType(),&alphabet.last());
-      if (typeCount<_letter.getType()+1) typeCount++;
+      letters.append(letter);
+      this->LettersByType.insert(letter.second,letter.first);
+      if (typesCount < letter.second+1) typesCount++;
       }
+   }
+
+QList<QPair<QChar, int> > Alphabet::getLetters()
+   {
+   return letters;
    }
 

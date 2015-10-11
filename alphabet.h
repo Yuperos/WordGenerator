@@ -4,30 +4,20 @@
 #include <QString>
 #include <QList>
 #include <QMap>
-
-class Letter : public QChar
-{
-   int numType; //0 vowel, 1 consonant
-
-public:
-   Letter(QChar _symbol, int _numType){symbol=_symbol, numType=_numType;}
-   bool operator ==(const Letter &b) const;
-
-   int getType() const;
-   QChar getSymbol() const;
-};
-
-
+#include <Qhash>
 
 class Alphabet
    {
-   int typeCount;
+   int typesCount;
 
-   QMultiMap <int,Letter*> LettersByType;
-   QList<Letter> alphabet;
+   QMultiMap <int,QChar> LettersByType;
+   QList<QPair<QChar,int> > letters;
 public:
    Alphabet();
-   void addLetter(Letter _letter);
+   Alphabet(Alphabet &obj);
+   void addLetter(QChar ch, int type);
+   void addLetter(QPair<QChar,int> letter);
+   QList<QPair<QChar,int> > getLetters();
    };
 
 #endif // ALPHABET_H
